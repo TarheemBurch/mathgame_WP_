@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Tarheem Burch">
+    <meta name="description" content="Math game">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Math Game</title>
+</head>
+
+<body>
+    <div id="preloader"></div>
+    <div class="container">
+
+        <video playsinline autoplay class="bacgroundVideo">
+            <source src="Video Background.mp4" type="video/mp4">
+        </video>
+
+        <div class="content">
+
+            <form id="registrationForm">
+                <div class="dataEntry" id="register">
+                    <table>
+                        <tr>
+                            <td colspan="2" style="text-align: center;"><h3>Registration Form</h3><hr></td>
+                        </tr>
+                        <tr>
+                            <td><label for="firstName">First Name:</label></td>
+                            <td><input type="text" id="firstName" required minlength="3" placeholder="John"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="lastName">Last Name:</label></td>
+                            <td><input type="text" id="lastName" required minlength="3" placeholder="russell"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="dob">Date of Birth:</label></td>
+                            <td><input type="date" id="dob" required onchange="calculateAge()"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="age">Age:</label></td>
+                            <td><input type="text" id="age" disabled></td>
+                        </tr>
+                        <tr>
+                            <td><label for="email">Email:</label></td>
+                            <td><input type="email" id="email" required pattern=".*@gmail\.com" placeholder="johnrussell@gmail.com"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="gender">Gender:</label></td>
+                            <td>
+                                <select id="gender" required>
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="play" id="playArea">
+                    <div class="grid">
+                        <div class="equation-container">
+                            <p id="equationid"></p>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" id="answerInput" placeholder="?">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" onclick="Register()" id="registerButton">Register</button>
+                    <button type="button" onclick="PlayGame()" id="startButton" disabled>Start</button>
+                    <button type="button" onclick="CheckAnswer()" id="checkAnswerButton" disabled>Check Answer</button>
+                    <button type="button" onclick="PlayGame()" id="nextButton" disabled>Next</button>
+                    <button type="button" onclick="End()" id="endButton" disabled>End</button>
+                    <button type="button" onclick="findPercentageScore()" id="percentageScoreButton"
+                        disabled>Percentage Score</button>
+                </div>
+                <br><br>
+
+                <div class="textAreas" id="textAreas">
+                    <textarea id="showpercentage" rows="7" cols="70"></textarea>
+                    <textarea id="showallplayers" rows="7" cols="70"></textarea>
+                </div>
+            </form>
+            <div class="chartscontainer" id="chartsContainer">
+                <h2>Charts</h2>
+                <canvas id="genderChart" width="100px" height="200px"></canvas>
+                <div id="showcharts">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
